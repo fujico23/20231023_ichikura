@@ -1,19 +1,24 @@
 * {
     color: darkslategrey;
-    box-sizing: border-box;
-    border: 1px red solid; /* 枠を確認するために入力。後で消す！！ */
+    box-sizing: border-box;/
 }
-/* 全体のフォントカラーを設定*/
 
+body {
+    max-width: 1500px;
+}
 .header {
-    display: flex;  /*headerのリスト横並び設定*/
-    justify-content: space-between; /* headerのロゴとリストを両側に設定*/
-    align-items: center; /*headerの上下を中央に設定*/
- /* width:90%;を削除した*/
-    height: 50px;
-    padding: 10px 60px;
+
 }
 
+.header-inner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    margin:10px 0 10px 30px ;
+}
 .header__logo img {
     width: 160px; /*header画像の横幅を設定*/
 }
@@ -26,32 +31,42 @@
     text-decoration: none;
     color: rgb(64, 61, 61);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
 }
 .header__nav-item:not(:last-child) {
-    margin-right: 20px; /*headerの右側のリストの一番右側以外の余白を設定*/
+    margin-right: 14px; /*headerの右側のリストの一番右側以外の余白を設定*/
 }
+
+/*headerここまで*/
 
 .hero {
-    position: relative;
-    max-width: 1378px;
-    height: 600px;
-    padding: 0 70px 0 70px;
-    text-align: center;
+    /*position: relative;
+    justify-content: center;*/
+    max-width: 1500px;
+    width: 100vw;
+    height: 630px;
 }
 
+.hero-inner {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    margin: 0 auto;
+}
 .hero__text-box {
     position: absolute;
-    top: 150px;
+    /*justify-content: center;*/
+    top: 25%;
     left: 25%;
+    height: auto;
     z-index: 10;
 }
 
 .hero__text-box h1 {
     font-family: 'Rock Salt', cursive;
-    font-size: 30px;
+    font-size: 36px;
     padding-bottom: 50px;
-    line-height: 50px;
+    line-height: 100px;
     color: rgb(186, 6, 90);
 }
 
@@ -82,24 +97,26 @@
 
 .hero__image img {
     width: 100%;
+    height: auto;
 }
-
+/*heroここまで*/
 .news {
-    position: relative;
-    width: 1500;
-    height: 550px;
-    padding: 0 70px 0 70px;
+    padding-bottom: 150px;
+    padding-top: 80px;
+    width: 100vw;
+}
+.news-inner {
+    margin: 0 auto;
+    width: 720px;
 }
 .news__ttl {
-    position: absolute;
-    left: 30%;
-    transform: translate(0%, 10%);
-
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
+
 .news__ttl h2{
     font-size: 24px;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    margin-top: 12px;
 }
 
 .news__ttl h3 {
@@ -109,12 +126,8 @@
 }
 
 .news__menu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*left: 30%; */
-
+    margin-top: 30px;
+    width: 750px;
 }
 .news__menu-list {
     list-style: none outside;
@@ -126,6 +139,7 @@
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     padding: 20px 20px;
+    font-size: 14px;
 }
 .news__menu-item:first-child a{
     border-top:1px solid #ccc;
@@ -134,10 +148,12 @@
     color: darkslategrey;
 }
 .news__menu-time {
-    padding-right: 20px;
+    padding-right: 60px;
+    font-size: 14px;
 }
 .news__menu-text {
-    padding-left: 20px;
+    padding-left: 60px;
+    padding-right: 120px;
 }
 
 .news__menu-label span{
@@ -152,13 +168,18 @@
 }
 
 .about {
-    width: 100vw;
-    height: 500px;
-    position: relative;
     background-color: rgb(243, 234, 240);
-    margin: 0 70px 0 7px;
+    width: 100vw;
+    padding-bottom: 50px;
 }
-
+.about-inner {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: red 1px solid;*/
+}
 .about__ttl {
     text-align: center;
     padding-top: 20px;
@@ -166,20 +187,15 @@
 .about__ttl h2 {
     font-size: 24px;
     padding-top: 10px;
-    padding-bottom: 30px;    
+    padding-bottom: 30px;
 }
 .about__ttl h3 {
     font-size: 12px;
     font-family: 'Rock Salt', cursive;
-    color: rgb(186, 6, 90);    
+    color: rgb(186, 6, 90);
 }
 .about__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 900px;
-    height: 300px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -189,13 +205,11 @@
 .about__container-text {
     position: relative;
     width: 40%;
-    height: 100%;
 
 }
 .about__container-text-inner p{
     line-height: 24px;
     font-size: 14px;
-    color: darkslategrey;
 }
 
 .about__container-img {
@@ -207,14 +221,17 @@
     height: auto;
 }
 
+/*サービス内容ここから*/
 .service {
-    position: relative;
-    width: 100%;
-    height: 600px;
+    width: 100vw;
+}
+
+.service-inner {
+    padding-top: 80px;
+    width: 900px;
+    margin: 0 auto;
 }
 .service__ttl {
-    position: absolute;
-    left: 20%;
     top: 10%;
 }
 .service h2 {
@@ -239,10 +256,6 @@
     font-size: 12px;
 }
 .service__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -30%);
     width: 900px;
     display: grid;
     grid-template-rows: 200px 200px;
@@ -291,26 +304,24 @@
 }
 
 .blog {
-    position: relative;
-    width: 100%;
-    height: 600px;
     background-color: rgb(243, 234, 240);
-}
-.blog-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 930px;
-    height: 350px;
-    display: flex;
-    justify-content: space-around;
+    width: 100vw;
 }
 
-.blog__ttl {
-    padding-top:30px;
-    padding-left: 200px;   
+.blog-inner {
+    width: 1000px;
+    margin: 0 auto;
 }
+.blog__ttl {
+    padding-top: 30px;
+}
+.blog-wrapper {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .blog__ttl h2 {
     font-size: 24px;
     padding-top: 10px;
@@ -369,11 +380,14 @@
     justify-content: space-between;
     padding-top: 40px;
 }
+
 .blog-btn {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /*margin-left: 370px;*/
+}
+.blog-btn-inner {
     display: inline-block;
     width: 200px;
     height: 50PX;
@@ -384,18 +398,22 @@
     text-decoration: none;
     font-weight: bold;
     padding-top: 20px 0;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     background-color: white;
 }
 
 .company {
-    width: 100%;
-    height: 550px;
-    position: relative;
+    width: 100vw;
+}
+
+.company-inner {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
 }
 .company__ttl {
-    padding-top: 50px;
-    padding-left: 250px;
+    padding-bottom: 24px;
 }
 .company__ttl h2 {
     font-size: 24px;
@@ -410,10 +428,6 @@
 }
 
 .company__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 800px;
     margin-bottom: 40px;
 }
@@ -433,25 +447,38 @@
 }
 
 .footer-top {
-    position: relative;
-    width: 100%;
-    height: 350px;
+    max-width: 1500px;
+    width: 100vw;
+    height: auto;
 }
 
 .footer-top__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    width: 100%;
+    margin: 0 auto;
 }
-.footer-top__container-inner ul{
+
+
+
+.footer-top__container-inner {
+    width: 100%;
+    height: auto;
     display: flex;
     list-style: none;
 }
 
 .footer-top__container-recuruit {
     position: relative;
+    width: 50%;
+    height: auto;
+}
+
+.footer-top__container-recuruit-image {
+    width: 100%;
+    height: auto;
+}
+.footer-top__container-recuruit-image img {
+    width: 100%;
+    height: auto;
 }
 
 .footer-top__container-recuruit-text {
@@ -466,6 +493,18 @@
 
 .footer-top__container-interview {
     position: relative;
+    width: 50%;
+    height: auto;
+}
+
+.footer-top__container-interview-image {
+    width: 100%;
+    height: auto;
+}
+
+.footer-top__container-interview img {
+    width: 100%;
+    height: auto;
 }
 .footer-top__container-interview-text {
     position: absolute;
@@ -478,7 +517,10 @@
 }
 
 .footer-bottom {
-    text-align: center;
+    display: flex;
+    flex-direction: column; /*要素をY軸に並べ直す*/
+    justify-content: center; /*要素をY軸に中央寄せにする*/
+    align-items: center; /*要素をX軸側に中寄せする*/
 }
 
 .footer-bottom-text {
@@ -488,32 +530,13 @@
     padding-bottom: 20px;
 }
 .footer-bottom-border {
-    display: flex;
-}
-
-.footer-bottom-border .footer-bottom-border-box-a {
-    flex-grow: 1;
-    position: relative;
+    background-color: rgb(96, 2, 46);
+    width: 2px;
     height: 40px;
-    line-height: 40px;
-    margin-right: 2em;
     margin-bottom: 20px;
 }
-.footer-bottom-border .footer-bottom-border-box-a::after {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    content: "";
-    width: 2px;
-    height: 100%;
-    background-color:rgb(186, 6, 90);
-}
 
-.footer-bottom-border .footer-bottom-border-box-b {
-    flex-grow: 1;
-    height: 40px;
-    line-height: 40px;
-}
+
 
 .footer-bottom__btn {
     display: inline-block;
@@ -529,12 +552,12 @@
     position: relative;
     margin-bottom: 70px;
 }
-.footer-bottom__btn::after {
+.footer-bottom__btn::before {
     content: "";
     position: absolute;
     top: 50%;
-    right: 15%;
-    background: url(./img/mailicon.svg) no-repeat;
+    left: 15%;
+    background: url(../img/mailicon.svg) no-repeat;
     background-size: cover;
     width: 20px;
     height: 20px;
